@@ -45,8 +45,9 @@ jobs:
       curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
       sh install-scout.sh
       echo ${{ secrets.REPO_PWD }} | docker login -u ${{ secrets.REPO_USER }} --password-stdin
-      docker scout quickview --output sarif --output-file quickview-report.sarif
-      docker scout cves --output sarif --output-file cve-report.sarif
+      docker scout quickview --image myapp:latest --output sarif --output-file quickview-report.sarif && \
+      docker scout cves --image myapp:latest --output sarif --output-file cve-report.sarif
+
    
 
   - name: Tag Docker Image
