@@ -47,7 +47,7 @@ jobs:
     #  echo ${{ secrets.REPO_PWD }} | docker login -u ${{ secrets.REPO_USER }} --password-stdin
     #  docker scout quickview
     #  docker scout cves
-  - name: docker scout scan
+  - name: Docker Scout Scan
     uses: docker/scout-action@v1.0.9
     with:
        dockerhub-user: ${{ secrets.REPO_USER }}
