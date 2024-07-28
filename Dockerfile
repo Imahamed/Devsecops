@@ -19,7 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-Expose port
 EXPOSE 8000
 
 RUN python3 /app/manage.py migrate
