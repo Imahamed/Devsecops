@@ -18,7 +18,7 @@ jobs:
   - name: Run Bandit Scan
     run: bandit -ll -ii -r . -f json -o bandit-report.json
   - name: Upload Artifact
-    uses: actions/upload-artifact@v4
+    uses: actions/upload-artifact@v3
     if: always()
     with:
      name: bandit-findings
