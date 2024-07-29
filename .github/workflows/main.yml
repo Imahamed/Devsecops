@@ -44,7 +44,7 @@ jobs:
     uses: docker/scout-action@v1.4.1
     with:
       dockerhub-user: ${{ secrets.REPO_USER }}
-      dockerhub-password: ${{ secrets.REPO_PWD }}
+      dockerhub-password: ${{ secrets.REPO_TOKEN }}
       command: quickview,cves
       only-severities: critical,high
       sarif-file: scout-report.sarif
@@ -61,7 +61,7 @@ jobs:
   - name: Creating webserver
     run: |
       ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} root@165.227.34.115 "
-      docker login -u ${{ secrets.REPO_USER }} -p ${{ secrets.REPO_PWD }} &&
+      docker login -u ${{ secrets.REPO_USER }} -p ${{ secrets.REPO_TOKEN }} &&
       docker ps -aq | xargs -r docker stop | xargs -r docker rm &&
       docker run -d -p 8000:8000 imahamed/lab10:v2"
       
