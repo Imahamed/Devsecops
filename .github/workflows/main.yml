@@ -48,9 +48,6 @@ jobs:
       command: quickview,cves
       only-severities: critical,high
       sarif-file: scout-report.sarif
-    
-  - name: permission
-    run: chmod 400 ${{ secrets.SSH_KEY }}
 
   - name: Creating webserver
     run: |
