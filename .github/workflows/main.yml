@@ -48,11 +48,6 @@ jobs:
       command: quickview,cves
       only-severities: critical,high
       sarif-file: scout-report.sarif
-
-  - name: Tag Docker Image
-    run: |
-        docker tag myapp:latest imahamed/lab10:latest
-        docker push imahamed/lab10:latest
     
   - name: permission
     run: chmod 400 ${{ secrets.SSH_KEY }}
