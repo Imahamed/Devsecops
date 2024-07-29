@@ -51,10 +51,10 @@ jobs:
 
   - name: Creating webserver
     run: |
-      ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} root@165.227.34.115 "
-      docker login -u ${{ secrets.REPO_USER }} -p ${{ secrets.REPO_TOKEN }} &&
-      docker ps -aq | xargs -r docker stop | xargs -r docker rm &&
-      docker run -d -p 8000:8000 imahamed/lab10:v2"
+      ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} root@165.227.34.115 
+      docker login -u ${{ secrets.REPO_USER }} -p ${{ secrets.REPO_TOKEN }}
+      docker ps -aq | xargs -r docker stop | xargs -r docker rm 
+      docker run -d -p 8000:8000 imahamed/lab10:v2
       
     
   - name: Upload Artifact
